@@ -1,0 +1,9 @@
+name: dart_ef
+description: A dart implementation of EF Encoding
+version: 0.0.1
+documentation: https://github.com/datagrove/Dart-EF-Dict/blob/main/README.md
+
+environment:
+  sdk: '>=2.10.0 <3.0.0'
+
+dependencies:
