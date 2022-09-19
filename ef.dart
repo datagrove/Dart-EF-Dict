@@ -8,7 +8,7 @@ void main() {
 }
 
 var values = [2, 3, 5, 7, 11, 13, 24];
-var values2 = [1, 2, 4, 16, 27, 89, 128];
+var values2 = [1, 2, 4, 16, 24, 89, 128];
 
 efCompress(List<int> input) {
   //sort list in ascending order
@@ -49,18 +49,10 @@ efCompress(List<int> input) {
     higherBitsList.setBit(j); //set the bit at location j to 1
   }
 
-  /*
-  for (int i = 0; i < values.length; i++) {
-    String allBits = input[i].toRadixString(2);
-    String highBits =
-        allBits.substring(0, allBits.length - lowerBits).padLeft(3, '0');
-    higherBitsList.add(highBits);
-  }
-  */
   String efList =
       higherBitsList.toBinaryString().substring(0, (2 * input.length)) +
           lowerBitsList;
-  return efList;
+  return [efList, lowerBits, input.length];
 }
 
 efExpand(List<String> higherLowerBits) {}
