@@ -3,12 +3,16 @@ import 'dart:typed_data';
 import 'package:bit_array/bit_array.dart';
 
 void main() {
-  print(efCompress(values));
-  print(efCompress(values2));
+  //print(efCompress(values));
+  //print(efCompress(values2));
+  //print(efCompress(values3));
+  print(efDecompress(efCompress(values)));
+  print(efDecompress(efCompress(values3)));
 }
 
 var values = [2, 3, 5, 7, 11, 13, 24];
 var values2 = [1, 2, 4, 16, 24, 89, 128];
+var values3 = [10000, 20000, 30000, 40000];
 
 efCompress(List<int> input) {
   //sort list in ascending order
@@ -55,4 +59,10 @@ efCompress(List<int> input) {
   return [efList, lowerBits, input.length];
 }
 
-efExpand(List<String> higherLowerBits) {}
+efDecompress(List higherLowerBits) {
+  var numlowerBitsD = higherLowerBits[1] * higherLowerBits[2];
+  var upperbitsD = higherLowerBits[0]
+      .substring(0, (higherLowerBits[0].length - (numlowerBitsD)));
+  var lowerbitsD = higherLowerBits[0].substring(((upperbitsD.length)));
+  return [upperbitsD, lowerbitsD];
+}
